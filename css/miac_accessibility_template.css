@@ -1,0 +1,443 @@
+/* Temp setting padding-top under template settings toolbar.
+  In template js script padding-top is initialized by real template settings toolbar height.
+*/
+body {
+  padding-top: 38px;
+}
+
+img {
+  max-width: 100%;
+}
+
+a:hover, a:focus {
+  color: inherit;
+  background-color: inherit;
+}
+
+#template_settings {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  text-align: center;
+  line-height: 0;
+  z-index: 100;
+}
+
+#template_settings_wrapper {
+  margin: 0 auto;
+  display: inline-block;
+  position: relative;
+  text-align: left;
+  line-height: normal;
+}
+
+.button_element_cursor {
+  cursor: pointer;
+}
+
+.button_element {
+  cursor: pointer;
+  border: 1px solid;
+  border-radius: 3px;
+}
+
+.sans-serif {
+  font-family: Arial, sans-serif;
+}
+
+.serif {
+  font-family: "Times New Roman", serif;
+}
+
+.spacing-normal {
+  letter-spacing: normal;
+}
+
+.spacing-medium {
+  letter-spacing: 2px;
+}
+
+.spacing-big {
+  letter-spacing: 4px;
+}
+
+#additional_settings_options {
+  position: absolute;
+  top: 100%;
+  width: 100%;
+  padding: 10px;
+  border: 2px solid;
+  border-radius: 4px;
+}
+
+#settings_toolbar {
+  height: 30px;
+  padding: 4px 12px;
+  border-radius: 4px;
+  font-size: 18px;
+  /*> .clearfix {
+    content: " ";
+    display: block;
+    height: 0;
+    clear: both;
+  }*/
+}
+#settings_toolbar a {
+  text-decoration: none;
+}
+#settings_toolbar > div > span, #settings_toolbar > div > a > span {
+  background-size: 30px 30px;
+  width: 30px;
+  height: 30px;
+  margin: 0;
+  display: inline-block;
+  vertical-align: middle;
+}
+#settings_toolbar #toolbar-images_slider {
+  height: 30px;
+}
+#settings_toolbar #toolbar-images_slider #image_on_off_slider {
+  background-repeat: no-repeat;
+  vertical-align: middle;
+  display: inline-block;
+  background-size: 90px 26px;
+  width: 90px;
+  height: 26px;
+  margin: 2px 0;
+}
+#settings_toolbar > .settings_toolbar-item {
+  margin: 0 4px 0 0;
+  float: left;
+}
+#settings_toolbar .vert_separ-wrapper {
+  line-height: 30px;
+  height: 100%;
+}
+#settings_toolbar .vert_separ-wrapper .vert_separ {
+  vertical-align: middle;
+  display: inline-block;
+  margin: 0 4px 0 2px;
+  width: 2px;
+  height: 16px;
+  background-repeat: repeat-y;
+}
+
+.fontsize-normal {
+  font-size: 100%;
+}
+.fontsize-medium {
+  font-size: 150%;
+}
+.fontsize-big {
+  font-size: 200%;
+}
+
+a {
+  color: inherit;
+}
+
+.color-white {
+  background-color: white;
+  color: black;
+  /*remove 'white' "a" rule below
+  a {
+    color: black;
+  }*/
+}
+.color-white #template_settings {
+  background: -moz-linear-gradient(bottom, #e4e4e4, #f7f7f7);
+  background: -webkit-linear-gradient(bottom, #e4e4e4, #f7f7f7);
+  background: -o-linear-gradient(bottom, #e4e4e4, #f7f7f7);
+  background: -ms-linear-gradient(bottom, #e4e4e4, #f7f7f7);
+  background: linear-gradient(bottom, #e4e4e4, #f7f7f7);
+}
+.color-white button, .color-white .button_element, .color-white .nav-bar ul.nav, .color-white .nav-bar ul.nav ul, .color-white input, .color-white #additional_settings_options {
+  background-color: white;
+  color: black;
+}
+.color-white button, .color-white .button_element {
+  border-color: black;
+}
+.color-white .nav-bar ul.nav, .color-white .nav-bar ul.nav ul {
+  border: 2px solid black;
+}
+.color-white button:hover, .color-white .button_element:hover, .color-white .button_element.button_element_sel, .color-white ul.nav li:hover, .color-white ul.nav li > a:hover {
+  background-color: black;
+  color: white;
+}
+.color-white #additional_settings_options {
+  border-color: black;
+}
+.color-white #choose_fontsize-normal {
+  background-image: url("../images/white/fontsize/fontsize_small.png");
+}
+.color-white #choose_fontsize-normal:hover, .color-white #choose_fontsize-normal.button_element_sel {
+  background-image: url("../images/white/fontsize/fontsize_small_sel.png");
+}
+.color-white #choose_fontsize-medium {
+  background-image: url("../images/white/fontsize/fontsize_normal.png");
+}
+.color-white #choose_fontsize-medium:hover, .color-white #choose_fontsize-medium.button_element_sel {
+  background-image: url("../images/white/fontsize/fontsize_normal_sel.png");
+}
+.color-white #choose_fontsize-big {
+  background-image: url("../images/white/fontsize/fontsize_big.png");
+}
+.color-white #choose_fontsize-big:hover, .color-white #choose_fontsize-big.button_element_sel {
+  background-image: url("../images/white/fontsize/fontsize_big_sel.png");
+}
+.color-white #choose_color-white {
+  background-image: url("../images/white/color/color_wh.png");
+}
+.color-white #choose_color-white:hover, .color-white #choose_color-white.button_element_sel {
+  background-image: url("../images/white/color/color_wh_sel.png");
+}
+.color-white #choose_color-black {
+  background-image: url("../images/white/color/color_bl.png");
+}
+.color-white #choose_color-black:hover, .color-white #choose_color-black.button_element_sel {
+  background-image: url("../images/white/color/color_bl_sel.png");
+}
+.color-white #image_on_off_slider {
+  background-image: url("../images/white/slider_off.png");
+}
+.color-white #image_on_off_slider.button_element_sel {
+  background-image: url("../images/white/slider_on.png");
+}
+.color-white #gear_icon_sett {
+  background-image: url("../images/white/settings.png");
+}
+.color-white #toolbar-addit_options:hover > #gear_icon_sett {
+  background-image: url("../images/white/settings_sel.png");
+}
+.color-white #eye_icon_normal_v {
+  background-image: url("../images/white/eye.png");
+}
+.color-white #toolbar-normal_version:hover #eye_icon_normal_v {
+  background-image: url("../images/white/eye_sel.png");
+}
+.color-white #settings_toolbar > .vert_separ-wrapper .vert_separ {
+  background-image: url("../images/white/vert_separator.png");
+}
+
+.color-black {
+  background-color: black;
+  color: white;
+  /* remove 'black' "a" rule below
+  a {
+    color: white;
+  }*/
+}
+.color-black #template_settings {
+  background: -moz-linear-gradient(bottom, #131413, #444444);
+  background: -webkit-linear-gradient(bottom, #131413, #444444);
+  background: -o-linear-gradient(bottom, #131413, #444444);
+  background: -ms-linear-gradient(bottom, #131413, #444444);
+  background: linear-gradient(bottom, #131413, #444444);
+}
+.color-black button, .color-black .button_element, .color-black .nav-bar ul.nav, .color-black .nav-bar ul.nav ul, .color-black input, .color-black #additional_settings_options {
+  background-color: black;
+  color: white;
+}
+.color-black button, .color-black .button_element {
+  border-color: white;
+}
+.color-black .nav-bar ul.nav, .color-black .nav-bar ul.nav ul {
+  border: 2px solid white;
+}
+.color-black button:hover, .color-black .button_element:hover, .color-black .button_element.button_element_sel, .color-black ul.nav li:hover, .color-black ul.nav li > a:hover {
+  background-color: white;
+  color: black;
+}
+.color-black #additional_settings_options {
+  border-color: white;
+}
+.color-black #choose_fontsize-normal {
+  background-image: url("../images/black/fontsize/fontsize_small.png");
+}
+.color-black #choose_fontsize-normal:hover, .color-black #choose_fontsize-normal.button_element_sel {
+  background-image: url("../images/black/fontsize/fontsize_small_sel.png");
+}
+.color-black #choose_fontsize-medium {
+  background-image: url("../images/black/fontsize/fontsize_normal.png");
+}
+.color-black #choose_fontsize-medium:hover, .color-black #choose_fontsize-medium.button_element_sel {
+  background-image: url("../images/black/fontsize/fontsize_normal_sel.png");
+}
+.color-black #choose_fontsize-big {
+  background-image: url("../images/black/fontsize/fontsize_big.png");
+}
+.color-black #choose_fontsize-big:hover, .color-black #choose_fontsize-big.button_element_sel {
+  background-image: url("../images/black/fontsize/fontsize_big_sel.png");
+}
+.color-black #choose_color-white {
+  background-image: url("../images/black/color/color_wh.png");
+}
+.color-black #choose_color-white:hover, .color-black #choose_color-white.button_element_sel {
+  background-image: url("../images/black/color/color_wh_sel.png");
+}
+.color-black #choose_color-black {
+  background-image: url("../images/black/color/color_bl.png");
+}
+.color-black #choose_color-black:hover, .color-black #choose_color-black.button_element_sel {
+  background-image: url("../images/black/color/color_bl_sel.png");
+}
+.color-black #image_on_off_slider {
+  background-image: url("../images/black/slider_off.png");
+}
+.color-black #image_on_off_slider.button_element_sel {
+  background-image: url("../images/black/slider_on.png");
+}
+.color-black #gear_icon_sett {
+  background-image: url("../images/black/settings.png");
+}
+.color-black #toolbar-addit_options:hover > #gear_icon_sett {
+  background-image: url("../images/black/settings_sel.png");
+}
+.color-black #eye_icon_normal_v {
+  background-image: url("../images/black/eye.png");
+}
+.color-black #toolbar-normal_version:hover #eye_icon_normal_v {
+  background-image: url("../images/black/eye_sel.png");
+}
+.color-black #settings_toolbar > .vert_separ-wrapper .vert_separ {
+  background-image: url("../images/black/vert_separator.png");
+}
+
+.banneritem img {
+  margin: 5px auto;
+}
+
+#left_container .banneritem img {
+  width: 100%;
+  max-width: 300px;
+  max-height: 110px;
+  /* box-shadow: 7px 8px 12px -6px #666; */
+  margin: 5px auto;
+}
+
+.image-news-item {
+  float: left;
+  display: table;
+  padding: 6px;
+  width: 196px;
+  height: 126px;
+  background: white;
+}
+
+.image-news-item img {
+  width: 100%;
+  max-height: 126px;
+  /* border: 4px solid white; */
+}
+
+#page_content img {
+  -webkit-filter: grayscale(100%);
+  filter: grayscale(100%);
+}
+
+.images-off #page_content img {
+  display: none;
+}
+
+#left_container {
+  padding: 0;
+}
+
+.header-search {
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.nav-bar {
+  min-height: 50px;
+  display: table;
+  text-align: center;
+  width: 100%;
+}
+
+.nav-bar ul.nav, .nav-bar > ul, .nav-bar > div > ul {
+  width: 100%;
+}
+
+ul.nav > li.deeper > span:after, ul.nav > li.deeper > a:after {
+  content: " ";
+  display: inline-block;
+  width: 0;
+  height: 0;
+  margin-left: 4px;
+  vertical-align: middle;
+  border-top: 4px dashed;
+  border-top: 4px solid \9;
+  border-right: 4px solid transparent;
+  border-left: 4px solid transparent;
+}
+
+.nav-bar ul.nav {
+  display: inline-block;
+  /* width: 75%; */
+  float: left;
+}
+
+.nav-bar ul.nav li a:hover, .nav-bar ul.nav li a:active, .nav-bar ul.nav li a:focus {
+  background: transparent;
+}
+
+.nav-bar ul.nav li {
+  display: inline-block;
+  cursor: pointer;
+}
+
+.nav-bar ul, .nav-bar li {
+  font-size: inherit;
+}
+
+/*.nav-bar ul.nav li.current{
+    background-image: linear-gradient(to bottom, #F28E90, #BA1B1F);
+}
+.nav-bar ul.nav li.active{
+    background-image: linear-gradient(to bottom, #F28E90, #BA1B1F);
+}*/
+/*.nav-bar ul.nav li, .nav-bar ul.nav a{
+  text-transform: uppercase;
+  color: white;
+  font-size: 17px;
+}*/
+/*.nav-bar ul.nav li:hover, .nav-bar ul.nav li:focus, .nav-bar ul.nav li:active{
+    background-image: linear-gradient(to bottom, #F28E90, #BA1B1F);
+}*/
+.nav-bar ul.nav span, .nav-bar ul.nav a {
+  position: relative;
+  display: block;
+  padding: 12px 8px 13px !important;
+}
+
+.nav-bar ul.nav span, .nav-bar ul.nav a {
+  position: relative;
+  display: block;
+  padding: 12px 8px 13px !important;
+}
+
+.nav-bar ul.nav li ul {
+  display: none;
+  width: 300px;
+  position: absolute;
+  z-index: 99;
+  background-color: inherit;
+  /* background-image: linear-gradient(to bottom, #F28E90, #BA1B1F); */
+  padding: 0;
+}
+
+.nav-bar ul.nav ul li {
+  display: block;
+}
+
+/*.nav-bar ul.nav ul li a{
+    font-size: 14px;
+    padding: 7px 8px!important;
+}*/
+.nav-bar ul.nav li:hover ul, .nav-bar ul.nav li:focus ul, .nav-bar ul.nav li:active ul {
+  display: table;
+}
+
+/*# sourceMappingURL=miac_accessibility_template.css.map */
