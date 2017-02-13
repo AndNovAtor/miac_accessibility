@@ -14,4 +14,8 @@ img {
   background: url(../images/images_panel_background/Panel_background_white.png);
 }
 
+.color-black #template_settings {
+  background: url(../images/images_panel_background/Panel_background_black.png);
+}
+
 /*# sourceMappingURL=miac_accessibility_template_ie9-and-older.css.map */
