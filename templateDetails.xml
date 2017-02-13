@@ -2,11 +2,11 @@
 <!DOCTYPE install PUBLIC "-//Joomla! 3.6//DTD template 1.0//RU" "http://www.joomla.org/xml/dtd/2.5/template-install.dtd">
 <extension version="3.1" type="template" client="site">
     <name>miac_accessibility</name>
-    <version>3.1</version>
-    <creationDate>29 December 2016</creationDate>
+    <version>2.7.3</version>
+    <creationDate>13 February 2017</creationDate>
     <author>Andrey Novikov</author>
     <authorEmail>andnovator@gmail.com</authorEmail>
-    <copyright>Copyright (C) 2016 МИАЦ. All rights reserved.</copyright>
+    <copyright>Copyright (c) 2017 Andrey Novikov</copyright>
     <description>Joomla! шаблон версии для слабовидящих</description>
     <files>
         <filename>favicon.ico</filename>
@@ -20,42 +20,14 @@
         <folder>language</folder>
     </files>
     <positions>
-        <!-- Temp position list. Based on positions order in 'protostar' template-->
-        <position>position-0</position>
-        <position>position-1</position>
+        <position>search</position>
         <position>banner</position>
-        <!--left-->
-        <position>position-8</position>
-        <!--center-->
-        <position>position-3</position>
+        <position>left</position>
         <!-- Content here -->
-        <position>position-2</position>
-        <!--right-->
-        <position>position-7</position>
+        <position>right</position>
         <position>footer</position>
-        <position>debug</position>
-        <!-- bellow - additional positions -->
-        <position>position-4</position>
-        <position>position-5</position>
-        <position>position-6</position>
-        <position>position-9</position>
-        <position>mod_font</position>
-        <position>mod_contrast</position>
-        <position>menu_top</position>
-                <position>breadcrumb</position>
-        <position>right_column_top</position>
-        <position>right_column_bottom</position>
-        <position>slider</position>
-                <position>content_column_top</position>
-        <position>content_column_bottom</position>
-        <position>left_column_top</position>
-        <position>left_column_bottom</position>
-                <position>gallery</position>
-        <position>info_box</position>
-        <position>banner_box</position>
         <position>copyright</position>
-                <position>menu_footer</position>
-        <position>search_box</position>
+        <position>debug</position>
     </positions>
     <languages folder="language">
         <language tag="en-GB">en-GB/en-GB.tpl_accessibility.ini</language>

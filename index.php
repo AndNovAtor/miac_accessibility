@@ -1,21 +1,18 @@
 <?php
 defined('_JEXEC') or die('Restricted access');
-//
-// Use variable below for set default template name (it is selected when disabling this template)
-//
-//$DEFAULT_NORM_TEMLATE_NAME = 'miac_lpu_theme';
-$DEFAULT_NORM_TEMLATE_NAME = 'ptd-4';
 //JFactory::getCache("mod_articles_news")->clean();
 //JFactory::getCache("mod_search")->clean();
+
 ?>
 
-<!-- TODO: Create params.php file (for code below)? -->
+<!-- TODO: Do I need to create params.php file (for code below)? -->
 <?php
 $doc = JFactory::getDocument();
 $this->setGenerator('');
 // Disable Joomla's Bootstrap version (js and css)
 unset($doc->_styleSheets[$this->baseurl .'/media/jui/css/bootstrap.min.css']);
 unset($doc->_scripts[JURI::root(true).'/media/jui/js/bootstrap.min.js']);
+/* TODO: Uncomment block below for load jQuery from template ./js dir (for using newer jQuery version), BUT (!) Joomla! webkits has some fails with newer version */
 // Disable Joomla's JQuery version (js and css)
 //unset($doc->_scripts[JURI::root(true).'/media/jui/js/jquery.min.js']);
 //unset($doc->_scripts[JURI::root(true).'/media/jui/js/jquery-noconflict.js']);
@@ -26,147 +23,157 @@ unset($doc->_scripts[JURI::root(true).'/media/jui/js/bootstrap.min.js']);
 <!DOCTYPE html>
 <html lang="<?php echo $this->language; ?>" dir="<?php echo $this->direction; ?>">
 <head>
-  <script src="<?php echo $this->baseurl . '/templates/' . $this->template . "/js/jquery.js"; ?>" type="text/javascript"></script>
+<!--  <script src="--><?php //echo $this->baseurl . '/templates/' . $this->template . "/js/jquery.js"; ?><!--" type="text/javascript"></script>-->
   <jdoc:include type="head"/>
   <?php include 'accessibility_includes_head.php';?>
 </head>
 
+<?
+$page_container_md_width = "8";
+$page_container_md_offset = "2";
+$content_column_width = "12";
+if (($this->countModules('left')) || ($this->countModules('position-8')) ||
+    ($this->countModules('left_column_top')) || ($this->countModules('left_column_bottom')) ||
+    ($this->countModules('gallery'))
+) {
+    $content_column_width = "9";
+}
+if (($this->countModules('right')) || ($this->countModules('position-7'))) {
+    if ($content_column_width === "9") {
+        $content_column_width = "6";
+        $page_container_md_offset = "1";
+        $page_container_md_offset = "10";
+    } else {
+        $content_column_width = "9";
+    }
+}
+?>
+
 <body class="fontsize-normal images-on color-white sans-serif spacing-normal">
 <?php include 'accessibility_settings_toolbar.php';?>
-<div id="page_content" class="container col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 col-xs-12">
-  <!-- BEGIN #header -->
-<!--  <pre><?php //print_r($doc);?><!--</pre>-->
+<div id="page_content" class="container col-md-<?=$page_container_md_width?> col-md-offset-<?=$page_container_md_offset?> col-sm-10 col-sm-offset-1 col-xs-12">
+  <!-- BEGIN <header> -->
   <header class="header" role="banner">
     <div class="clearfix">
-      <!-- Site logo [ and description] -->
       <div class="page-header container-fluid text-center">
         <a class="brand" href="<?php echo $this->baseurl; ?>/">
-          <!--         --><?php //echo $logo; ?>
-          <!--         --><?php //if ($this->params->get('sitedescription')) : ?>
-          <!--           --><?php //echo '<div class="site-description">' . htmlspecialchars($this->params->get('sitedescription'), ENT_COMPAT, 'UTF-8') . '</div>'; ?>
-          <!--         --><?php //endif; ?>
-           <?php
-           $header_title_text = $doc->getMetaData("description");
-           if (!$header_title_text) {
-               $header_title_text = JFactory::getConfig()->get("sitename");
-           }
-           ?>
-<!--          <h1>--><?php //echo '' . /* htmlspecialchars(*/$doc->getMetaData("description")/*, ENT_COMPAT, 'UTF-8')*/ /*. '</strong>'*/; ?><!--</h1>-->
+          <?php
+          /*
+           * Note: Choose in code below what will be site header - site meta-data description (default) or site name
+          */
+          $header_title_text = $doc->getMetaData("description");
+          if (!$header_title_text) {
+              $header_title_text = JFactory::getConfig()->get("sitename");
+          }
+          ?>
           <h1><?=$header_title_text;?></h1>
         </a>
       </div>
-      <!-- Search, language selector - position-0 -->
+      <!-- BEGIN search box -->
       <div class="header-search container-fluid pull-right">
-        <jdoc:include type="modules" name="position-0" style="none"/>
-        <div id="search-box">
-          <jdoc:include type="modules" name="search_box" style="themeHtml5"/>
-        </div>
-        <!--        <div id="contrast-box">-->
-        <!--            <jdoc:include type="modules" name="mod_contrast" style="themeHtml5" />-->
-        <!--        </div>-->
+        <jdoc:include type="modules" name="position-0"/>
+        <jdoc:include type="modules" name="search"/>
+        <?php if($this->countModules('search_box')):?>
+          <div id="search-box">
+            <jdoc:include type="modules" name="search_box"/>
+          </div>
+        <?php endif;?>
       </div>
+      <!-- END search box -->
     </div>
   </header>
-  <!-- END #header -->
-  <!-- BEGIN navigation -->
-  <jdoc:include type="modules" name="banner" style="none"/>
-  <?php if ($this->countModules('position-1')) : ?>
-    <nav class="navigation container-fluid " role="navigation">
-      <div class="navbar navbar-collapse" style="border: none">
-        <jdoc:include type="modules" name="position-1" style="none" />
+  <!-- END <header> -->
+  <?php if ($this->countModules('menu_top')):?>
+  <jdoc:include type="modules" name="banner"/>
+  <?php endif; ?>
+  <?php if (($this->countModules('menu_top')) || ($this->countModules('position-1'))): ?>
+    <!-- BEGIN navigation -->
+    <nav class="navbar container-fluid" role="navigation" style="border: none">
+      <div class="nav-bar">
+        <jdoc:include type="modules" name="menu_top"/>
+        <jdoc:include type="modules" name="position-1"/>
       </div>
     </nav>
+    <!-- END navigation -->
   <?php endif; ?>
-  <nav class="navbar container-fluid" style="border: none">
-    <div class="nav-bar">
-      <jdoc:include type="modules" name="menu_top" style="themeHtml5" />
-      <?php if($this->countModules('mainmenu')):?>
-        <jdoc:include type="modules" name="mainmenu" style="xhtml" />
-      <?php endif;?>
-    </div>
-  </nav>
-  <!-- END navigation -->
-
+  <?php if($this->countModules('top')):?>
+    <!-- BEGIN #top -->
+    <jdoc:include type="modules" name="top" />
+    <!-- END #top -->
+  <?php endif;?>
   <div id="main_content">
-    <!-- BEGIN #left -->
     <?php
-    $content_width_num = "12";
-    if (($this->countModules('position-8')) || ($this->countModules('left_column_top')) ||
-            ($this->countModules('left_column_bottom')) || ($this->countModules('gallery'))):
-        $content_width_num = "9";
-        ?>
-      <div id="left_container" class="pull-left col-md-3 col-sm-3">
-        <div id="left_container" class="pull-left">
-          <jdoc:include type="modules" name="position-8" style="xhtml"/>
-        </div>
-        <div>
-          <jdoc:include type="modules" name="left_column_top" style="themeHtml5"/>
-        </div>
-        <div>
-          <jdoc:include type="modules" name="left_column_bottom" style="themeHtml5"/>
-        </div>
-        <div>
-          <jdoc:include type="modules" name="gallery" style="XHTML"/>
-        </div>
+    if (($this->countModules('left')) || ($this->countModules('position-8')) ||
+        ($this->countModules('left_column_top')) || ($this->countModules('left_column_bottom')) ||
+        ($this->countModules('gallery'))
+    ):
+      ?>
+      <!-- BEGIN _left -->
+      <div id="left_container" class="pull-left col-md-3 col-sm-3 wordwrap">
+        <jdoc:include type="modules" name="left"/>
+        <jdoc:include type="modules" name="position-8"/>
+        <jdoc:include type="modules" name="left_column_top"/>
+        <jdoc:include type="modules" name="left_column_bottom"/>
+        <jdoc:include type="modules" name="gallery"/>
       </div>
+      <!-- END _left -->
     <?php endif; ?>
-    <!-- END #left -->
-    <?php
-    if ($this->countModules('position-7')) {
-        $content_width_num = "6";
-    }
-    ?>
 
     <!-- BEGIN #page -->
-<!--    <div class="page" style=width:<?php //echo $content_width; ?>-->
-    <div id="page" class="pull-left col-md-<?=$content_width_num;?> col-sm-<?=$content_width_num;?>">
+    <div id="page" class="pull-left col-md-<?=$content_column_width;?> col-sm-<?=$content_column_width;?>">
+      <?php if ($this->countModules('content_column_top')):?>
       <div>
-        <jdoc:include type="modules" name="content_column_top" style="themeHtml5" />
+        <jdoc:include type="modules" name="content_column_top"/>
       </div>
+      <?php endif;?>
       <jdoc:include type="modules" name="position-3" style="xhtml" />
       <jdoc:include type="message" />
       <jdoc:include type="component" />
-      <jdoc:include type="modules" name="position-2" style="none" />
-      <div>
-        <jdoc:include type="modules" name="content_column_bottom" style="themeHtml5" />
-      </div>
+      <jdoc:include type="modules" name="position-2"/>
+      <?php if ($this->countModules('content_column_bottom')):?>
+        <div>
+          <jdoc:include type="modules" name="content_column_bottom"/>
+        </div>
+      <?php endif;?>
     </div>
     <!-- END #page -->
 
-    <!-- BEGIN #right -->
-      <?php
-      if ($this->countModules('position-7')):
-        ?>
-        <div id="right_container" class="pull-right col-md-3" style="width: 25%; padding-left: 10px;">
-          <jdoc:include type="modules" name="position-7" style="xhtml"/>
-        </div>
-      <?php endif; ?>
-    <!-- END #right -->
-
-    <div style="clear:both;">
-      &nbsp;
-    </div>
-  </div>
-
-  <!-- BEGIN #footer -->
-  <div class="footer">
-    <jdoc:include type="modules" name="footer" style="none"/>
-    <div class="text-center">
-      <div id="copyright"  style="display:inline-block; margin: 0 auto;">
-        <jdoc:include type="modules" name="copyright" style="themeHtml5" />
+    <?php if (($this->countModules('right')) || ($this->countModules('position-7'))): ?>
+      <!-- BEGIN _right -->
+      <div id="right_container" class="pull-right col-md-3 wordwrap" style="width: 25%; padding-left: 10px;">
+        <jdoc:include type="modules" name="right"/>
+        <jdoc:include type="modules" name="position-7"/>
       </div>
-      <nav class="navbar container-fluid" style="border: none">
-        <div id="nav-footer" class="nav-bar">
-          <jdoc:include type="modules" name="menu_footer" style="themeHtml5" />
+      <!-- END _right -->
+    <?php endif; ?>
+  </div>
+
+  <!-- BEGIN .footer -->
+  <div class="footer">
+    <jdoc:include type="modules" name="footer"/>
+    <div class="text-center">
+      <?php if ($this->countModules('copyright')):?>
+        <div id="copyright"  style="display:inline-block; margin: 0 auto;">
+          <jdoc:include type="modules" name="copyright"/>
         </div>
-      </nav>
+      <?php endif;?>
+      <?php if ($this->countModules('menu_footer')):?>
+        <nav class="navbar container-fluid" style="border: none">
+          <div id="nav-footer" class="nav-bar">
+            <jdoc:include type="modules" name="menu_footer"/>
+          </div>
+        </nav>
+      <?php endif;?>
     </div>
   </div>
-  <!-- END #footer -->
+  <!-- END .footer -->
 </div>
+<div class="clearfix"></div>
 <!-- END #page_content -->
-
-<jdoc:include type="modules" name="debug" style="none"/>
-
+<?php if ($this->countModules('debug')):?>
+  <!-- BEGIN #debug -->
+  <jdoc:include type="modules" name="debug"/>
+  <!-- END #debug -->
+<?php endif; ?>
 </body>
 </html>
