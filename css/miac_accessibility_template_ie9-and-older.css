@@ -1,0 +1,17 @@
+body {
+  padding-top: 0;
+}
+
+#template_settings {
+  position: static;
+}
+
+img {
+  filter: gray;
+}
+
+.color-white #template_settings {
+  background: url(../images/images_panel_background/Panel_background_white.png);
+}
+
+/*# sourceMappingURL=miac_accessibility_template_ie9-and-older.css.map */
