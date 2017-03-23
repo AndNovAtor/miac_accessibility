@@ -78,6 +78,12 @@ button, .btn, .button_element {
   border: $buttons_border_width solid;
   border-radius: $buttons_border_radius;
 }
+.breadcrumb {
+  border: solid $containers_border_width;
+  border-radius: $containers_border_radius;
+  margin-top: 10px;
+  margin-bottom: 15px;
+}
 .sans-serif {
   font-family: Arial, sans-serif;
 }
@@ -165,14 +171,14 @@ button, .btn, .button_element {
     font-size: 150%;
     $fontsize_ratio__px: 1.5px;
     $fontsize_ratio__em: 1.5em;
-    $fontsize_ratio__percent: 1.5%;
+    //$fontsize_ratio__percent: 1.5%;
     @import 'bootstrap_override_fontsize';
   }
   &-big {
     font-size: 200%;
     $fontsize_ratio__px: 2px;
     $fontsize_ratio__em: 2em;
-    $fontsize_ratio__percent: 2%;
+    //$fontsize_ratio__percent: 2%;
     @import 'bootstrap_override_fontsize';
   }
 }
@@ -205,13 +211,15 @@ $border_color: $main_color;
     color: $main_color;
   }
   button, .button_element, .btn,
-  .nav-bar ul.nav, .nav-bar ul.nav ul,
+  ul.nav, ul.nav ul,
+  .nav-bar ul.nav > a, .nav-bar ul.nav ul > a,
   textarea, input,
   input[type="text"],input[type="number"], input[type="email"],
   input[type="tel"], input[type="url"], input[type="password"],
   form button[type="submit"], input[type="button"], input[type="submit"],
   #additional_settings_options,
-  .pagination li > a, .pagination li > span {
+  .pagination li > a, .pagination li > span,
+  .breadcrumb {
     background: $bg_color;
     color: $main_color;
   }
@@ -221,15 +229,16 @@ $border_color: $main_color;
   input[type="text"],input[type="number"], input[type="email"],
   input[type="tel"], input[type="url"], input[type="password"],
   form button[type="submit"], input[type="button"], input[type="submit"],
-  .pagination li > a, .pagination li > span {
+  .pagination li > a, .pagination li > span,
+  .breadcrumb {
     border-color: $border_color;
   }
   .nav-bar ul.nav, .nav-bar ul.nav ul {
     border: solid $border_color;
   }
   button:hover, .btn:hover, .button_element:hover, .button_element.button_element_sel,
-  .nav li:hover, .nav li > a:hover,
-  .nav li:focus, .nav li > a:focus,
+  .nav li:hover, .nav li:hover > a, .nav li > a:hover,
+  .nav li:focus, .nav li:focus > a, .nav li > a:focus,
   form button[type="submit"]:hover, input[type="button"]:hover, input[type="submit"]:hover,
   .pagination li > a:hover, .pagination li > span:hover,
   .pagination li > a:focus, .pagination li > span:focus,
@@ -320,7 +329,8 @@ $border_color: $main_color;
   input[type="tel"], input[type="url"], input[type="password"],
   form button[type="submit"], input[type="button"], input[type="submit"],
   #additional_settings_options,
-  .pagination li > a, .pagination li > span {
+  .pagination li > a, .pagination li > span,
+  .breadcrumb {
     background: $bg_color;
     color: $main_color;
   }
@@ -330,7 +340,8 @@ $border_color: $main_color;
   input[type="text"],input[type="number"], input[type="email"],
   input[type="tel"], input[type="url"], input[type="password"],
   form button[type="submit"], input[type="button"], input[type="submit"],
-  .pagination li > a, .pagination li > span {
+  .pagination li > a, .pagination li > span,
+  .breadcrumb {
     border-color: $border_color;
   }
   .nav-bar ul.nav, .nav-bar ul.nav ul {
@@ -408,10 +419,10 @@ $border_color: $main_color;
   margin: 5px auto;
 }
 #left_container .banneritem img {
-  width: 100%;
+  /*width: 100%;
   max-width: 300px;
   max-height: 110px;
-  /* box-shadow: 7px 8px 12px -6px #666; */
+   box-shadow: 7px 8px 12px -6px #666; */
   margin: 5px auto;
 }
 
@@ -426,6 +437,15 @@ $border_color: $main_color;
   margin-top: 15px;
   margin-bottom: 15px;
 }
+.nav li {
+  padding: 5px;
+  & > a {
+    padding: 0;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
 .nav-bar {
   //padding: 0 25px;
   min-height: 50px;
@@ -435,6 +455,10 @@ $border_color: $main_color;
 }
 .nav-bar ul.nav, .nav-bar > ul, .nav-bar > div > ul {
   width: 100%;
+}
+
+.nav-bar .nav li {
+  padding: 0;
 }
 
 .nav-bar ul.nav {
@@ -448,25 +472,6 @@ $border_color: $main_color;
 }
 .nav-bar ul, .nav-bar li {
   font-size: inherit;
-}
-/*.nav-bar ul.nav li.current{
-    background-image: linear-gradient(to bottom, #F28E90, #BA1B1F);
-}
-.nav-bar ul.nav li.active{
-    background-image: linear-gradient(to bottom, #F28E90, #BA1B1F);
-}*/
-/*.nav-bar ul.nav li, .nav-bar ul.nav a{
-  text-transform: uppercase;
-  color: white;
-  font-size: 17px;
-}*/
-/*.nav-bar ul.nav li:hover, .nav-bar ul.nav li:focus, .nav-bar ul.nav li:active{
-    background-image: linear-gradient(to bottom, #F28E90, #BA1B1F);
-}*/
-.nav-bar ul.nav span, .nav-bar ul.nav a{
-  position: relative;
-  display: block;
-  padding: 12px 8px 13px !important;
 }
 .nav-bar ul.nav span, .nav-bar ul.nav a{
   position: relative;
@@ -511,7 +516,7 @@ ul.nav > li.deeper {
     display: inline-block;
     width: 0;
     height: 0;
-    margin-left: 4px;
+    margin-left: 1px;
     //margin-left: 0;
     vertical-align: middle;
     border-top: 4px dashed;
@@ -520,6 +525,7 @@ ul.nav > li.deeper {
     border-left: 4px solid transparent;
   }
 }
+//
 .nav-bar ul.nav, .nav-bar ul.nav ul {
   border-width: $containers_border_width;
 }

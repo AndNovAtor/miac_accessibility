@@ -52,6 +52,13 @@ button, .btn, .button_element {
   border-radius: 4px;
 }
 
+.breadcrumb {
+  border: solid 2px;
+  border-radius: 0;
+  margin-top: 10px;
+  margin-bottom: 15px;
+}
+
 .sans-serif {
   font-family: Arial, sans-serif;
 }
@@ -140,23 +147,11 @@ button, .btn, .button_element {
 .fontsize-medium h1 {
   font-size: 3em;
 }
-.fontsize-medium small {
-  font-size: 120%;
-}
-.fontsize-medium sub, .fontsize-medium sup {
-  font-size: 112.5%;
-}
 .fontsize-medium code, .fontsize-medium kbd, .fontsize-medium pre, .fontsize-medium samp {
   font-size: 1.5em;
 }
 .fontsize-medium body {
   font-size: 21px;
-}
-.fontsize-medium h1 small, .fontsize-medium .h1 small, .fontsize-medium h2 small, .fontsize-medium .h2 small, .fontsize-medium h3 small, .fontsize-medium .h3 small, .fontsize-medium h1 .small, .fontsize-medium .h1 .small, .fontsize-medium h2 .small, .fontsize-medium .h2 .small, .fontsize-medium h3 .small, .fontsize-medium .h3 .small {
-  font-size: 97.5%;
-}
-.fontsize-medium h4 small, .fontsize-medium .h4 small, .fontsize-medium h5 small, .fontsize-medium .h5 small, .fontsize-medium h6 small, .fontsize-medium .h6 small, .fontsize-medium h4 .small, .fontsize-medium .h4 .small, .fontsize-medium h5 .small, .fontsize-medium .h5 .small, .fontsize-medium h6 .small, .fontsize-medium .h6 .small {
-  font-size: 112.5%;
 }
 .fontsize-medium h1, .fontsize-medium .h1 {
   font-size: 54px;
@@ -179,26 +174,8 @@ button, .btn, .button_element {
 .fontsize-medium .lead {
   font-size: 24px;
 }
-.fontsize-medium small, .fontsize-medium .small {
-  font-size: 127.5%;
-}
-.fontsize-medium .initialism {
-  font-size: 135%;
-}
 .fontsize-medium blockquote {
   font-size: 26.25px;
-}
-.fontsize-medium blockquote footer, .fontsize-medium blockquote small, .fontsize-medium blockquote .small {
-  font-size: 120%;
-}
-.fontsize-medium code {
-  font-size: 135%;
-}
-.fontsize-medium kbd {
-  font-size: 135%;
-}
-.fontsize-medium kbd kbd {
-  font-size: 150%;
 }
 .fontsize-medium pre {
   font-size: 19.5px;
@@ -275,9 +252,6 @@ button, .btn, .button_element {
 .fontsize-medium .pagination-sm > li > a, .fontsize-medium .pagination-sm > li > span {
   font-size: 18px;
 }
-.fontsize-medium .label {
-  font-size: 112.5%;
-}
 .fontsize-medium .badge {
   font-size: 18px;
 }
@@ -311,23 +285,11 @@ button, .btn, .button_element {
 .fontsize-big h1 {
   font-size: 4em;
 }
-.fontsize-big small {
-  font-size: 160%;
-}
-.fontsize-big sub, .fontsize-big sup {
-  font-size: 150%;
-}
 .fontsize-big code, .fontsize-big kbd, .fontsize-big pre, .fontsize-big samp {
   font-size: 2em;
 }
 .fontsize-big body {
   font-size: 28px;
-}
-.fontsize-big h1 small, .fontsize-big .h1 small, .fontsize-big h2 small, .fontsize-big .h2 small, .fontsize-big h3 small, .fontsize-big .h3 small, .fontsize-big h1 .small, .fontsize-big .h1 .small, .fontsize-big h2 .small, .fontsize-big .h2 .small, .fontsize-big h3 .small, .fontsize-big .h3 .small {
-  font-size: 130%;
-}
-.fontsize-big h4 small, .fontsize-big .h4 small, .fontsize-big h5 small, .fontsize-big .h5 small, .fontsize-big h6 small, .fontsize-big .h6 small, .fontsize-big h4 .small, .fontsize-big .h4 .small, .fontsize-big h5 .small, .fontsize-big .h5 .small, .fontsize-big h6 .small, .fontsize-big .h6 .small {
-  font-size: 150%;
 }
 .fontsize-big h1, .fontsize-big .h1 {
   font-size: 72px;
@@ -350,26 +312,8 @@ button, .btn, .button_element {
 .fontsize-big .lead {
   font-size: 32px;
 }
-.fontsize-big small, .fontsize-big .small {
-  font-size: 170%;
-}
-.fontsize-big .initialism {
-  font-size: 180%;
-}
 .fontsize-big blockquote {
   font-size: 35px;
-}
-.fontsize-big blockquote footer, .fontsize-big blockquote small, .fontsize-big blockquote .small {
-  font-size: 160%;
-}
-.fontsize-big code {
-  font-size: 180%;
-}
-.fontsize-big kbd {
-  font-size: 180%;
-}
-.fontsize-big kbd kbd {
-  font-size: 200%;
 }
 .fontsize-big pre {
   font-size: 26px;
@@ -446,9 +390,6 @@ button, .btn, .button_element {
 .fontsize-big .pagination-sm > li > a, .fontsize-big .pagination-sm > li > span {
   font-size: 24px;
 }
-.fontsize-big .label {
-  font-size: 150%;
-}
 .fontsize-big .badge {
   font-size: 24px;
 }
@@ -503,13 +444,15 @@ a {
   color: black !important;
 }
 .color-white button, .color-white .button_element, .color-white .btn,
-.color-white .nav-bar ul.nav, .color-white .nav-bar ul.nav ul,
+.color-white ul.nav, .color-white ul.nav ul,
+.color-white .nav-bar ul.nav > a, .color-white .nav-bar ul.nav ul > a,
 .color-white textarea, .color-white input,
 .color-white input[type="text"], .color-white input[type="number"], .color-white input[type="email"],
 .color-white input[type="tel"], .color-white input[type="url"], .color-white input[type="password"],
 .color-white form button[type="submit"], .color-white input[type="button"], .color-white input[type="submit"],
 .color-white #additional_settings_options,
-.color-white .pagination li > a, .color-white .pagination li > span {
+.color-white .pagination li > a, .color-white .pagination li > span,
+.color-white .breadcrumb {
   background: white !important;
   color: black !important;
 }
@@ -519,15 +462,16 @@ a {
 .color-white input[type="text"], .color-white input[type="number"], .color-white input[type="email"],
 .color-white input[type="tel"], .color-white input[type="url"], .color-white input[type="password"],
 .color-white form button[type="submit"], .color-white input[type="button"], .color-white input[type="submit"],
-.color-white .pagination li > a, .color-white .pagination li > span {
+.color-white .pagination li > a, .color-white .pagination li > span,
+.color-white .breadcrumb {
   border-color: black !important;
 }
 .color-white .nav-bar ul.nav, .color-white .nav-bar ul.nav ul {
   border: solid black !important;
 }
 .color-white button:hover, .color-white .btn:hover, .color-white .button_element:hover, .color-white .button_element.button_element_sel,
-.color-white .nav li:hover, .color-white .nav li > a:hover,
-.color-white .nav li:focus, .color-white .nav li > a:focus,
+.color-white .nav li:hover, .color-white .nav li:hover > a, .color-white .nav li > a:hover,
+.color-white .nav li:focus, .color-white .nav li:focus > a, .color-white .nav li > a:focus,
 .color-white form button[type="submit"]:hover, .color-white input[type="button"]:hover, .color-white input[type="submit"]:hover,
 .color-white .pagination li > a:hover, .color-white .pagination li > span:hover,
 .color-white .pagination li > a:focus, .color-white .pagination li > span:focus,
@@ -612,7 +556,8 @@ a {
 .color-black input[type="tel"], .color-black input[type="url"], .color-black input[type="password"],
 .color-black form button[type="submit"], .color-black input[type="button"], .color-black input[type="submit"],
 .color-black #additional_settings_options,
-.color-black .pagination li > a, .color-black .pagination li > span {
+.color-black .pagination li > a, .color-black .pagination li > span,
+.color-black .breadcrumb {
   background: black !important;
   color: white !important;
 }
@@ -622,7 +567,8 @@ a {
 .color-black input[type="text"], .color-black input[type="number"], .color-black input[type="email"],
 .color-black input[type="tel"], .color-black input[type="url"], .color-black input[type="password"],
 .color-black form button[type="submit"], .color-black input[type="button"], .color-black input[type="submit"],
-.color-black .pagination li > a, .color-black .pagination li > span {
+.color-black .pagination li > a, .color-black .pagination li > span,
+.color-black .breadcrumb {
   border-color: white !important;
 }
 .color-black .nav-bar ul.nav, .color-black .nav-bar ul.nav ul {
@@ -699,10 +645,10 @@ a {
 }
 
 #left_container .banneritem img {
-  width: 100%;
+  /*width: 100%;
   max-width: 300px;
   max-height: 110px;
-  /* box-shadow: 7px 8px 12px -6px #666; */
+   box-shadow: 7px 8px 12px -6px #666; */
   margin: 5px auto;
 }
 
@@ -719,6 +665,16 @@ a {
   margin-bottom: 15px;
 }
 
+.nav li {
+  padding: 5px;
+}
+.nav li > a {
+  padding: 0;
+}
+.nav li > a:hover {
+  text-decoration: underline;
+}
+
 .nav-bar {
   min-height: 50px;
   display: table;
@@ -728,6 +684,10 @@ a {
 
 .nav-bar ul.nav, .nav-bar > ul, .nav-bar > div > ul {
   width: 100%;
+}
+
+.nav-bar .nav li {
+  padding: 0;
 }
 
 .nav-bar ul.nav {
@@ -743,26 +703,6 @@ a {
 
 .nav-bar ul, .nav-bar li {
   font-size: inherit;
-}
-
-/*.nav-bar ul.nav li.current{
-    background-image: linear-gradient(to bottom, #F28E90, #BA1B1F);
-}
-.nav-bar ul.nav li.active{
-    background-image: linear-gradient(to bottom, #F28E90, #BA1B1F);
-}*/
-/*.nav-bar ul.nav li, .nav-bar ul.nav a{
-  text-transform: uppercase;
-  color: white;
-  font-size: 17px;
-}*/
-/*.nav-bar ul.nav li:hover, .nav-bar ul.nav li:focus, .nav-bar ul.nav li:active{
-    background-image: linear-gradient(to bottom, #F28E90, #BA1B1F);
-}*/
-.nav-bar ul.nav span, .nav-bar ul.nav a {
-  position: relative;
-  display: block;
-  padding: 12px 8px 13px !important;
 }
 
 .nav-bar ul.nav span, .nav-bar ul.nav a {
@@ -807,7 +747,7 @@ ul.nav > li.deeper > span:after, ul.nav > li.deeper > a:after {
   display: inline-block;
   width: 0;
   height: 0;
-  margin-left: 4px;
+  margin-left: 1px;
   vertical-align: middle;
   border-top: 4px dashed;
   border-top: 4px solid \9;

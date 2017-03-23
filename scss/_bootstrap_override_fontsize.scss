@@ -1,10 +1,10 @@
 h1 { font-size: 2*$fontsize_ratio__em }
-small { font-size: 80*$fontsize_ratio__percent }
-sub, sup { font-size: 75*$fontsize_ratio__percent }
+//small { font-size: 80*$fontsize_ratio__percent }
+//sub, sup { font-size: 75*$fontsize_ratio__percent }
 code, kbd, pre, samp { font-size: 1*$fontsize_ratio__em }
 body { font-size: 14*$fontsize_ratio__px }
-h1 small, .h1 small, h2 small, .h2 small, h3 small, .h3 small, h1 .small, .h1 .small, h2 .small, .h2 .small, h3 .small, .h3 .small { font-size: 65*$fontsize_ratio__percent }
-h4 small, .h4 small, h5 small, .h5 small, h6 small, .h6 small, h4 .small, .h4 .small, h5 .small, .h5 .small, h6 .small, .h6 .small { font-size: 75*$fontsize_ratio__percent }
+//h1 small, .h1 small, h2 small, .h2 small, h3 small, .h3 small, h1 .small, .h1 .small, h2 .small, .h2 .small, h3 .small, .h3 .small { font-size: 65*$fontsize_ratio__percent }
+//h4 small, .h4 small, h5 small, .h5 small, h6 small, .h6 small, h4 .small, .h4 .small, h5 .small, .h5 .small, h6 .small, .h6 .small { font-size: 75*$fontsize_ratio__percent }
 h1, .h1 { font-size: 36*$fontsize_ratio__px }
 h2, .h2 { font-size: 30*$fontsize_ratio__px }
 h3, .h3 { font-size: 24*$fontsize_ratio__px }
@@ -12,13 +12,13 @@ h4, .h4 { font-size: 18*$fontsize_ratio__px }
 h5, .h5 { font-size: 14*$fontsize_ratio__px }
 h6, .h6 { font-size: 12*$fontsize_ratio__px }
 .lead { font-size: 16*$fontsize_ratio__px }
-small, .small { font-size: 85*$fontsize_ratio__percent }
-.initialism { font-size: 90*$fontsize_ratio__percent }
+//small, .small { font-size: 85*$fontsize_ratio__percent }
+//.initialism { font-size: 90*$fontsize_ratio__percent }
 blockquote { font-size: 17.5*$fontsize_ratio__px }
-blockquote footer, blockquote small, blockquote .small { font-size: 80*$fontsize_ratio__percent }
-code { font-size: 90*$fontsize_ratio__percent }
-kbd { font-size: 90*$fontsize_ratio__percent }
-kbd kbd { font-size: 100*$fontsize_ratio__percent }
+//blockquote footer, blockquote small, blockquote .small { font-size: 80*$fontsize_ratio__percent }
+//code { font-size: 90*$fontsize_ratio__percent }
+//kbd { font-size: 90*$fontsize_ratio__percent }
+//kbd kbd { font-size: 100*$fontsize_ratio__percent }
 pre { font-size: 13*$fontsize_ratio__px }
 legend { font-size: 21*$fontsize_ratio__px }
 output { font-size: 14*$fontsize_ratio__px }
@@ -44,7 +44,7 @@ output { font-size: 14*$fontsize_ratio__px }
 .navbar-brand { font-size: 18*$fontsize_ratio__px }
 .pagination-lg > li > a, .pagination-lg > li > span { font-size: 18*$fontsize_ratio__px }
 .pagination-sm > li > a, .pagination-sm > li > span { font-size: 12*$fontsize_ratio__px }
-.label { font-size: 75*$fontsize_ratio__percent }
+//.label { font-size: 75*$fontsize_ratio__percent }
 .badge { font-size: 12*$fontsize_ratio__px }
 .jumbotron p { font-size: 21*$fontsize_ratio__px }
 .progress-bar { font-size: 12*$fontsize_ratio__px }

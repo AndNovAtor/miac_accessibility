@@ -2,22 +2,25 @@
 <!DOCTYPE install PUBLIC "-//Joomla! 3.6//DTD template 1.0//RU" "http://www.joomla.org/xml/dtd/2.5/template-install.dtd">
 <extension version="3.1" type="template" client="site">
     <name>miac_accessibility</name>
-    <version>2.7.3</version>
-    <creationDate>13 February 2017</creationDate>
+    <version>2.7.7</version>
+    <creationDate>21 march 2017</creationDate>
     <author>Andrey Novikov</author>
     <authorEmail>andnovator@gmail.com</authorEmail>
     <copyright>Copyright (c) 2017 Andrey Novikov</copyright>
     <description>Joomla! шаблон версии для слабовидящих</description>
     <files>
-        <filename>favicon.ico</filename>
-        <filename>index.php</filename>
-        <filename>templateDetails.xml</filename>
-        <filename>template_thumbnail.png</filename>
         <folder>css</folder>
+        <folder>fonts</folder>
         <folder>html</folder>
         <folder>images</folder>
         <folder>js</folder>
         <folder>language</folder>
+        <filename>accessibility_includes_head.php</filename>
+        <filename>accessibility_settings_toolbar.php</filename>
+        <filename>favicon.ico</filename>
+        <filename>index.php</filename>
+        <filename>templateDetails.xml</filename>
+        <filename>template_thumbnail.png</filename>
     </files>
     <positions>
         <position>search</position>
