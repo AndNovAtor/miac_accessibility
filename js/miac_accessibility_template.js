@@ -167,4 +167,5 @@ jQuery(function($) {
             $(this).removeClass("pull-left");
         }
     });
+    $("*[style*='color']").each(function() {$(this).css('color','');});
 });

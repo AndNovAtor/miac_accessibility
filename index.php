@@ -9,25 +9,23 @@ defined('_JEXEC') or die('Restricted access');
 <?php
 $this->setGenerator('');
 $doc = JFactory::getDocument();
-$cur_template_path = $this->baseurl . "/templates/" . $this->template;
+$cur_template_path = JURI::root(true) . "/templates/" . $this->template;
 // Disable Joomla's Bootstrap version (js and css)
 unset($doc->_styleSheets[JURI::root(true).'/media/jui/css/bootstrap.min.css']);
 unset($doc->_scripts[JURI::root(true).'/media/jui/js/bootstrap.min.js']);
-$doc->addScript($cur_template_path.'/js/bootstrap.js');
 /* TODO: Uncomment block below for load jQuery from template ./js dir (for using newer jQuery version), BUT (!) Joomla! webkits has some fails with newer version */
 // Disable Joomla's JQuery version (js and css)
 //unset($doc->_scripts[JURI::root(true).'/media/jui/js/jquery.min.js']);
 //unset($doc->_scripts[JURI::root(true).'/media/jui/js/jquery-noconflict.js']);
 //unset($doc->_scripts[JURI::root(true).'/media/jui/js/jquery-migrate.min.js']);
-//$doc->addScript($this->baseurl . '/templates/' . $this->template . '/js/jquery.js');
+//$doc->addScript($cur_template_path . '/js/jquery.js');
 ?>
 
 <!DOCTYPE html>
 <html lang="<?php echo $this->language; ?>" dir="<?php echo $this->direction; ?>">
 <head>
-<!--  <script src="--><?php //echo $this->baseurl . '/templates/' . $this->template . "/js/jquery.js"; ?><!--" type="text/javascript"></script>-->
-  <jdoc:include type="head"/>
   <?php include 'accessibility_includes_head.php';?>
+  <jdoc:include type="head"/>
 </head>
 
 <?php
@@ -53,11 +51,11 @@ if (($this->countModules('right')) || ($this->countModules('position-7'))) {
 
 <body class="fontsize-normal images-on color-white sans-serif spacing-normal">
 <?php include 'accessibility_settings_toolbar.php';?>
-<div id="page_content" class="container col-md-<?php=$page_container_md_width?> col-md-offset-<?php=$page_container_md_offset?> col-sm-10 col-sm-offset-1 col-xs-12">
+<div id="page_content" class="container col-md-<?php echo $page_container_md_width?> col-md-offset-<?php echo $page_container_md_offset?> col-sm-10 col-sm-offset-1 col-xs-12">
   <!-- BEGIN <header> -->
   <header class="header" role="banner">
     <div class="clearfix">
-      <div class="page-header container-fluid text-center">
+      <div class="page-header text-center">
         <a class="brand" href="<?php echo $this->baseurl; ?>/">
           <?php
           /*
@@ -68,11 +66,11 @@ if (($this->countModules('right')) || ($this->countModules('position-7'))) {
               $header_title_text = JFactory::getConfig()->get("sitename");
           }
           ?>
-          <h1><?php=$header_title_text;?></h1>
+          <h1><?php echo $header_title_text;?></h1>
         </a>
       </div>
       <!-- BEGIN search box -->
-      <div class="header-search container-fluid pull-right">
+      <div class="header-search pull-right">
         <jdoc:include type="modules" name="position-0"/>
         <jdoc:include type="modules" name="search"/>
         <?php if($this->countModules('search_box')):?>
@@ -90,13 +88,18 @@ if (($this->countModules('right')) || ($this->countModules('position-7'))) {
   <?php endif; ?>
   <?php if (($this->countModules('menu_top')) || ($this->countModules('position-1'))): ?>
     <!-- BEGIN navigation -->
-    <nav class="container-fluid" role="navigation" style="border: none">
+    <nav class="" role="navigation" style="border: none">
       <div class="nav-bar">
         <jdoc:include type="modules" name="menu_top"/>
         <jdoc:include type="modules" name="position-1"/>
       </div>
     </nav>
     <!-- END navigation -->
+  <?php endif; ?>
+  <?php if ($this->countModules('breadcrumb')) : ?>
+    <div id="breadcrumb" style="width: 100%;">
+      <jdoc:include type="modules" name="breadcrumb" style="themeHtml5" />
+    </div>
   <?php endif; ?>
   <?php if($this->countModules('top')):?>
     <!-- BEGIN #top -->
@@ -122,7 +125,7 @@ if (($this->countModules('right')) || ($this->countModules('position-7'))) {
     <?php endif; ?>
 
     <!-- BEGIN #page -->
-    <div id="page" class="pull-left col-md-<?php=$content_column_width;?> col-sm-<?php=$content_column_width;?>">
+    <div id="page" class="pull-left col-md-<?php echo $content_column_width;?> col-sm-<?php echo $content_column_width;?>">
       <?php if ($this->countModules('content_column_top')):?>
       <div>
         <jdoc:include type="modules" name="content_column_top"/>
@@ -160,7 +163,7 @@ if (($this->countModules('right')) || ($this->countModules('position-7'))) {
         </div>
       <?php endif;?>
       <?php if ($this->countModules('menu_footer')):?>
-        <nav class="container-fluid" style="border: none">
+        <nav class="" style="border: none">
           <div id="nav-footer" class="nav-bar">
             <jdoc:include type="modules" name="menu_footer"/>
           </div>
