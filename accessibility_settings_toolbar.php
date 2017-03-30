@@ -3,16 +3,19 @@
 // Use variable below for set default template name (it is selected when disabling this template)
 //
 $DEFAULT_NORM_TEMLATE_NAME = 'miac_lpu_theme';
-//$DEFAULT_NORM_TEMLATE_NAME = 'ptd-4';
+if (mb_substr(JVERSION, 0, 1, 'utf-8') == '1') {
+  $language =& JFactory::getLanguage();
+  $language->load('tpl_miac_accessibility', dirname(__FILE__), $language->getTag(), true);
+}
 ?>
 <div id="template_settings">
   <div id="template_settings_wrapper">
     <div id="settings_toolbar" class="sans-serif">
       <div id="toolbar-fontsize" class="settings_toolbar-item">
         <?= JText::_('TPL_ACCESSIBILITY_FONTSIZE'); ?>
-        <span id="choose_fontsize-normal"></span><!--
+        <span id="choose_fontsize-normal" class="button_element_sel"></span><!--
      --><span id="choose_fontsize-medium"></span><!--
-     --><span id="choose_fontsize-big" class="button_element_sel"></span>
+     --><span id="choose_fontsize-big"></span>
       </div>
       <div id="toolbar-page_color" class="settings_toolbar-item">
         <?= JText::_('TPL_ACCESSIBILITY_SITE_COLOR'); ?>

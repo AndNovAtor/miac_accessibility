@@ -23,13 +23,15 @@ $toolbar_item_addit_padding_left_md: 12px;
 
 $containers_border_width: 2px;
 $containers_border_radius: 0;
+$inputs_border_width: 2px;
+$inputs_border_radius: 3px;
 $buttons_border_width: 1px;
 $buttons_border_radius: 4px;
 $toolbar_addit_panel_border_radius: 3px;
 /* Temp setting padding-top under template settings toolbar.
   In template js script padding-top is initialized by real template settings toolbar height.
 */
-body {
+#page_content {
   padding-top: 38px;
 }
 $images_contrast: 130%;
@@ -43,14 +45,28 @@ img {
   filter: grayscale(100%) contrast($images_contrast);
 }
 
-a:hover, a:focus {
-  color: inherit;
-  background-color: inherit;
+.margin_lr_auto {
+  margin-left: auto;
+  margin-right: auto;
 }
-
-/*.blog .item-image {
-  float: none;
-}*/
+.button_element_cursor {
+  cursor: pointer;
+}
+button, .btn, .button_element {
+  cursor: pointer;
+  border: $buttons_border_width solid;
+  border-radius: $buttons_border_radius;
+}
+input[type="text"] {
+  border-width: $inputs_border_width;
+  border-radius: $inputs_border_radius;
+}
+.breadcrumb {
+  border: solid $containers_border_width;
+  border-radius: $containers_border_radius;
+  margin-top: 10px;
+  margin-bottom: 15px;
+}
 
 #template_settings {
   position: fixed;
@@ -69,35 +85,6 @@ a:hover, a:focus {
   text-align: left;
   /* ...After set up line-height = 0, return line-height to normal state: */
   line-height: normal
-}
-.button_element_cursor {
-  cursor: pointer;
-}
-button, .btn, .button_element {
-  cursor: pointer;
-  border: $buttons_border_width solid;
-  border-radius: $buttons_border_radius;
-}
-.breadcrumb {
-  border: solid $containers_border_width;
-  border-radius: $containers_border_radius;
-  margin-top: 10px;
-  margin-bottom: 15px;
-}
-.sans-serif {
-  font-family: Arial, sans-serif;
-}
-.serif {
-  font-family: "Times New Roman", serif;
-}
-.spacing-normal {
-  letter-spacing: normal;
-}
-.spacing-medium {
-  letter-spacing: 2px;
-}
-.spacing-big {
-  letter-spacing: 4px;
 }
 #additional_settings_options {
   position: absolute;
@@ -161,6 +148,21 @@ button, .btn, .button_element {
     margin-left: 0;
   }
 }
+.sans-serif {
+  font-family: Arial, sans-serif;
+}
+.serif {
+  font-family: "Times New Roman", serif;
+}
+.spacing-normal {
+  letter-spacing: normal;
+}
+.spacing-medium {
+  letter-spacing: 2px;
+}
+.spacing-big {
+  letter-spacing: 4px;
+}
 
 /* BEGIN font size styles */
 .fontsize {
@@ -189,6 +191,14 @@ h1, h2, h3, h4, h5, h6 {
 /*BEGIN font color styles*/
 a {
   color: inherit;
+}
+a:hover, a:focus {
+  color: inherit;
+  background-color: inherit;
+}
+
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+  color: inherit !important;
 }
 
 $bg_color: white !important;
@@ -255,7 +265,6 @@ $border_color: $main_color;
   .pagination li.disabled > a:hover,
   .pagination li.disabled > a:focus {
     background-color: $bg_color;
-    color: $main_color;
     border-color: $border_color;
   }
 
@@ -366,7 +375,6 @@ $border_color: $main_color;
   .pagination li.disabled > a:hover,
   .pagination li.disabled > a:focus {
     background-color: $bg_color;
-    color: $main_color;
     border-color: $border_color;
   }
 
@@ -425,17 +433,40 @@ $border_color: $main_color;
    box-shadow: 7px 8px 12px -6px #666; */
   margin: 5px auto;
 }
-
-.images-off #page_content img {
-  display: none;
+div.bannergroup {
+  margin: 10px 0;
+}
+/* div.banneritem a {
+  display:block;
+  width:100%;
+} */
+div.banneritem {
+  display:block;
+  width:100%;
+}
+.banners_bottom div.banneritem img {
+  display:block;
+  float:left;
+  width:49%;
+  margin:3px 2px;
+}
+.banners_left div.banneritem img {
+  display:block;
+  width:100%;
+  margin:3px 0;
 }
 
-#left_container {
-  padding: 0;
+#left_container ul, #right_container ul {
+  padding-left: 0;
+  margin-left: 15px;
 }
+
 .header-search {
   margin-top: 15px;
   margin-bottom: 15px;
+}
+#top_menu_nav {
+  margin-bottom: 10px;
 }
 .nav li {
   padding: 5px;
@@ -473,7 +504,7 @@ $border_color: $main_color;
 .nav-bar ul, .nav-bar li {
   font-size: inherit;
 }
-.nav-bar ul.nav span, .nav-bar ul.nav a{
+.nav-bar ul.nav li > span, .nav-bar ul.nav li > a{
   position: relative;
   display: block;
   padding: 12px 8px 13px !important;
@@ -586,6 +617,7 @@ div.pagination > ul {
 .pagination li.disabled > a:hover,
 .pagination li.disabled > a:focus {
   cursor: not-allowed;
+  color: #777 !important; 
 }
 
 @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {

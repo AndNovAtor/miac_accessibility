@@ -149,11 +149,9 @@ jQuery(function($) {
         setDefault_spacing();
     }
     setTemplateSettingsAndSelItems();
-    var browserVersion = detectIE();
-    if (browserVersion !== false) {
-        if (browserVersion > 9) {
-            $("body").css("padding-top", $("#template_settings").height());
-        }
+    var ieVersion = detectIE();
+    if ((ieVersion == false) || (ieVersion > 9)) {
+            $("#page_content").css("padding-top", $("#template_settings").height());
     }
     /*var pagin = $("div.pagination");
     if (pagin.length) {

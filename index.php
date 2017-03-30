@@ -18,7 +18,7 @@ unset($doc->_scripts[JURI::root(true).'/media/jui/js/bootstrap.min.js']);
 //unset($doc->_scripts[JURI::root(true).'/media/jui/js/jquery.min.js']);
 //unset($doc->_scripts[JURI::root(true).'/media/jui/js/jquery-noconflict.js']);
 //unset($doc->_scripts[JURI::root(true).'/media/jui/js/jquery-migrate.min.js']);
-//$doc->addScript($cur_template_path . '/js/jquery.js');
+//$doc->addScript($cur_template_path . '/js/jquery-1.9.12.js');
 ?>
 
 <!DOCTYPE html>
@@ -26,6 +26,7 @@ unset($doc->_scripts[JURI::root(true).'/media/jui/js/bootstrap.min.js']);
 <head>
   <?php include 'accessibility_includes_head.php';?>
   <jdoc:include type="head"/>
+  <?php include 'accessibility_includes_tail.php'; ?>
 </head>
 
 <?php
@@ -53,38 +54,40 @@ if (($this->countModules('right')) || ($this->countModules('position-7'))) {
 <?php include 'accessibility_settings_toolbar.php';?>
 <div id="page_content" class="container col-md-<?php echo $page_container_md_width?> col-md-offset-<?php echo $page_container_md_offset?> col-sm-10 col-sm-offset-1 col-xs-12">
   <!-- BEGIN <header> -->
-  <header class="header" role="banner">
-    <div class="clearfix">
-      <div class="page-header text-center">
-        <a class="brand" href="<?php echo $this->baseurl; ?>/">
-          <?php
-          /*
-           * Note: Choose in code below what will be site header - site meta-data description (default) or site name
-          */
-          $header_title_text = $doc->getMetaData("description");
-          if (!$header_title_text) {
+  <header class="header clearfix col-md-12" role="banner">
+    <div class="page-header text-center clearfix">
+      <a class="brand" href="<?php echo $this->baseurl; ?>/">
+        <?php
+        /*
+         * Note: Choose in code below what will be site header - site meta-data description (default) or site name
+        */
+        $header_title_text = $doc->getMetaData("description");
+        if (!$header_title_text) {
+          if (mb_substr(JVERSION, 0, 1, 'utf-8') == '3') {
               $header_title_text = JFactory::getConfig()->get("sitename");
+          } else {
+              $header_title_text = JFactory::getConfig()->getValue("config.sitename");;
           }
-          ?>
-          <h1><?php echo $header_title_text;?></h1>
-        </a>
-      </div>
-      <!-- BEGIN search box -->
-      <div class="header-search pull-right">
-        <jdoc:include type="modules" name="position-0"/>
-        <jdoc:include type="modules" name="search"/>
-        <?php if($this->countModules('search_box')):?>
-          <div id="search-box">
-            <jdoc:include type="modules" name="search_box"/>
-          </div>
-        <?php endif;?>
-      </div>
-      <!-- END search box -->
+        }
+        ?>
+        <h1><?php echo $header_title_text;?></h1>
+      </a>
     </div>
+    <!-- BEGIN search box -->
+    <div class="header-search pull-right clearfix">
+      <jdoc:include type="modules" name="position-0"/>
+      <jdoc:include type="modules" name="search"/>
+      <?php if($this->countModules('search_box')):?>
+        <div id="search-box">
+          <jdoc:include type="modules" name="search_box"/>
+        </div>
+      <?php endif;?>
+    </div>
+    <!-- END search box -->
   </header>
   <!-- END <header> -->
-  <?php if ($this->countModules('menu_top')):?>
-  <jdoc:include type="modules" name="banner"/>
+  <?php if ($this->countModules('banner')):?>
+    <jdoc:include type="modules" name="banner"/>
   <?php endif; ?>
   <?php if (($this->countModules('menu_top')) || ($this->countModules('position-1'))): ?>
     <!-- BEGIN navigation -->
@@ -97,7 +100,7 @@ if (($this->countModules('right')) || ($this->countModules('position-7'))) {
     <!-- END navigation -->
   <?php endif; ?>
   <?php if ($this->countModules('breadcrumb')) : ?>
-    <div id="breadcrumb" style="width: 100%;">
+    <div id="breadcrumb" class="col-md-12 clearfix">
       <jdoc:include type="modules" name="breadcrumb" style="themeHtml5" />
     </div>
   <?php endif; ?>
@@ -106,7 +109,7 @@ if (($this->countModules('right')) || ($this->countModules('position-7'))) {
     <jdoc:include type="modules" name="top" />
     <!-- END #top -->
   <?php endif;?>
-  <div id="main_content">
+  <div id="main_content" class="clearfix">
     <?php
     if (($this->countModules('left')) || ($this->countModules('position-8')) ||
         ($this->countModules('left_column_top')) || ($this->countModules('left_column_bottom')) ||
@@ -154,7 +157,7 @@ if (($this->countModules('right')) || ($this->countModules('position-7'))) {
   </div>
 
   <!-- BEGIN footer -->
-  <footer>
+  <footer class="clearfix">
     <jdoc:include type="modules" name="footer"/>
     <div class="text-center">
       <?php if ($this->countModules('copyright')):?>
@@ -170,18 +173,18 @@ if (($this->countModules('right')) || ($this->countModules('position-7'))) {
         </nav>
       <?php endif;?>
     </div>
-  </div>
+  </footer>
   <!-- END footer -->
-</footer>
-<div class="clearfix"></div>
+  <div class="clearfix"></div>
+  <?php if ($this->countModules('debug')):?>
+    <!-- BEGIN #debug -->
+    <div id="debug_prints">
+      <jdoc:include type="modules" name="debug"/>
+      <?php ?>
+    </div>
+    <!-- END #debug -->
+  <?php endif; ?>
+</div>
 <!-- END #page_content -->
-<?php if ($this->countModules('debug')):?>
-  <!-- BEGIN #debug -->
-  <div id="debug_prints">
-    <jdoc:include type="modules" name="debug"/>
-    <?php ?>
-  </div>
-  <!-- END #debug -->
-<?php endif; ?>
 </body>
 </html>
