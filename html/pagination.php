@@ -8,6 +8,10 @@
  */
 
 defined('_JEXEC') or die;
+if (mb_substr(JVERSION, 0, 1, 'utf-8') == '1') {
+  $language =& JFactory::getLanguage();
+  $language->load('lib_pagination', dirname(__FILE__), $language->getTag(), true);
+}
 
 /**
  * This is a file to add template specific chrome to pagination rendering.
@@ -150,26 +154,26 @@ function pagination_item_active(&$item)
   $class = '';
 
   // Check for "Start" item
-  if ($item->text == JText::_('JLIB_HTML_START'))
+  if (($item->text == JText::_('JLIB_HTML_START')) || ($item->text == JText::_('START')))
   {
     $display = '<span class="icon-first"></span>';
   }
 
   // Check for "Prev" item
-  if ($item->text == JText::_('JPREV'))
+  if (($item->text == JText::_('JPREV')) || ($item->text == JText::_('PREV')))
   {
     $item->text = JText::_('JPREVIOUS');
     $display = '<span class="icon-previous"></span>';
   }
 
   // Check for "Next" item
-  if ($item->text == JText::_('JNEXT'))
+  if (($item->text == JText::_('JNEXT')) || ($item->text == JText::_('NEXT')))
   {
     $display = '<span class="icon-next"></span>';
   }
 
   // Check for "End" item
-  if ($item->text == JText::_('JLIB_HTML_END'))
+  if (($item->text == JText::_('JLIB_HTML_END')) || ($item->text == JText::_('END')))
   {
     $display = '<span class="icon-last"></span>';
   }
@@ -181,10 +185,19 @@ function pagination_item_active(&$item)
     $class   = ' class="hidden-phone"';
   }
 
+  if ($item->base > 0)
+  {
+    $limit_prefix = '?start=' . $item->base;
+  }
+  else
+  {
+    $limit_prefix = '';
+  }
+
   $title = '';
   if (!is_numeric($item->text))
   {
-    JHtml::_('bootstrap.tooltip');
+    //JHtml::_('bootstrap.tooltip');
     $title = ' class="hasTooltip" title="' . $item->text . '"';
   }
 
@@ -203,25 +216,25 @@ function pagination_item_active(&$item)
 function pagination_item_inactive(&$item)
 {
   // Check for "Start" item
-  if ($item->text == JText::_('JLIB_HTML_START'))
+  if (($item->text == JText::_('JLIB_HTML_START')) || ($item->text == JText::_('START')))
   {
     return '<li class="disabled"><a><span class="icon-first"></span></a></li>';
   }
 
   // Check for "Prev" item
-  if ($item->text == JText::_('JPREV'))
+  if (($item->text == JText::_('JPREV')) || ($item->text == JText::_('PREV')))
   {
     return '<li class="disabled"><a><span class="icon-previous"></span></a></li>';
   }
 
   // Check for "Next" item
-  if ($item->text == JText::_('JNEXT'))
+  if (($item->text == JText::_('JNEXT')) || ($item->text == JText::_('NEXT')))
   {
     return '<li class="disabled"><a><span class="icon-next"></span></a></li>';
   }
 
   // Check for "End" item
-  if ($item->text == JText::_('JLIB_HTML_END'))
+  if (($item->text == JText::_('JLIB_HTML_END')) || ($item->text == JText::_('END')))
   {
     return '<li class="disabled"><a><span class="icon-last"></span></a></li>';
   }

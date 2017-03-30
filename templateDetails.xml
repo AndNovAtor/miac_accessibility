@@ -4,8 +4,8 @@
 <!DOCTYPE install PUBLIC "-//Joomla! 2.5//DTD template 1.0//RU" "http://www.joomla.org/xml/dtd/2.5/template-install.dtd">
 <extension version="3.1" type="template" client="site">
     <name>miac_accessibility</name>
-    <version>2.8.0</version>
-    <creationDate>21 march 2017</creationDate>
+    <version>2.8.1</version>
+    <creationDate>30 march 2017</creationDate>
     <author>Andrey Novikov</author>
     <authorEmail>andnovator@gmail.com</authorEmail>
     <copyright>Copyright (c) 2017 Andrey Novikov</copyright>

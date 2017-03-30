@@ -456,7 +456,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 }
 .color-white button, .color-white .button_element, .color-white .btn,
 .color-white ul.nav, .color-white ul.nav ul,
-.color-white .nav-bar ul.nav > a, .color-white .nav-bar ul.nav ul > a,
+.color-white ul.nav li > a, .color-white ul.nav li > span,
 .color-white textarea, .color-white input,
 .color-white input[type="text"], .color-white input[type="number"], .color-white input[type="email"],
 .color-white input[type="tel"], .color-white input[type="url"], .color-white input[type="password"],
@@ -483,6 +483,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 .color-white button:hover, .color-white .btn:hover, .color-white .button_element:hover, .color-white .button_element.button_element_sel,
 .color-white .nav li:hover, .color-white .nav li:hover > a, .color-white .nav li > a:hover,
 .color-white .nav li:focus, .color-white .nav li:focus > a, .color-white .nav li > a:focus,
+.color-white .nav li.active, .color-white .nav li.active > a, .color-white .nav li.active > span,
 .color-white form button[type="submit"]:hover, .color-white input[type="button"]:hover, .color-white input[type="submit"]:hover,
 .color-white .pagination li > a:hover, .color-white .pagination li > span:hover,
 .color-white .pagination li > a:focus, .color-white .pagination li > span:focus,
@@ -560,7 +561,8 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
   color: white !important;
 }
 .color-black button, .color-black .button_element, .color-black .btn,
-.color-black .nav-bar ul.nav, .color-black .nav-bar ul.nav ul,
+.color-black ul.nav, .color-black ul.nav ul,
+.color-black ul.nav li > a, .color-black ul.nav li > span,
 .color-black textarea, .color-black input,
 .color-black input[type="text"], .color-black input[type="number"], .color-black input[type="email"],
 .color-black input[type="tel"], .color-black input[type="url"], .color-black input[type="password"],
@@ -585,8 +587,9 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
   border: solid white !important;
 }
 .color-black button:hover, .color-black .btn:hover, .color-black .button_element:hover, .color-black .button_element.button_element_sel,
-.color-black .nav li:hover, .color-black .nav li > a:hover,
-.color-black .nav li:focus, .color-black .nav li > a:focus,
+.color-black .nav li:hover, .color-black .nav li:hover > a, .color-black .nav li > a:hover,
+.color-black .nav li:focus, .color-black .nav li:focus > a, .color-black .nav li > a:focus,
+.color-black .nav li.active, .color-black .nav li.active > a, .color-black .nav li.active > span,
 .color-black form button[type="submit"]:hover, .color-black input[type="button"]:hover, .color-black input[type="submit"]:hover,
 .color-black .pagination li > a:hover, .color-black .pagination li > span:hover,
 .color-black .pagination li > a:focus, .color-black .pagination li > span:focus,
@@ -860,6 +863,10 @@ div.pagination > ul {
 .pagination li.disabled > a:focus {
   cursor: not-allowed;
   color: #777 !important;
+}
+
+header .page-header, div.header .page-header {
+  margin: 25px 0 15px;
 }
 
 /*# sourceMappingURL=miac_accessibility_template.css.map */

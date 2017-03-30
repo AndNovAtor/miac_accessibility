@@ -222,7 +222,7 @@ $border_color: $main_color;
   }
   button, .button_element, .btn,
   ul.nav, ul.nav ul,
-  .nav-bar ul.nav > a, .nav-bar ul.nav ul > a,
+  ul.nav li > a, ul.nav li > span,
   textarea, input,
   input[type="text"],input[type="number"], input[type="email"],
   input[type="tel"], input[type="url"], input[type="password"],
@@ -249,6 +249,7 @@ $border_color: $main_color;
   button:hover, .btn:hover, .button_element:hover, .button_element.button_element_sel,
   .nav li:hover, .nav li:hover > a, .nav li > a:hover,
   .nav li:focus, .nav li:focus > a, .nav li > a:focus,
+  .nav li.active, .nav li.active > a, .nav li.active > span,
   form button[type="submit"]:hover, input[type="button"]:hover, input[type="submit"]:hover,
   .pagination li > a:hover, .pagination li > span:hover,
   .pagination li > a:focus, .pagination li > span:focus,
@@ -332,7 +333,8 @@ $border_color: $main_color;
     color: $main_color;
   }
   button, .button_element, .btn,
-  .nav-bar ul.nav, .nav-bar ul.nav ul,
+  ul.nav, ul.nav ul,
+  ul.nav li > a, ul.nav li > span,
   textarea, input,
   input[type="text"],input[type="number"], input[type="email"],
   input[type="tel"], input[type="url"], input[type="password"],
@@ -357,8 +359,9 @@ $border_color: $main_color;
     border: solid $border_color;
   }
   button:hover, .btn:hover, .button_element:hover, .button_element.button_element_sel,
-  .nav li:hover, .nav li > a:hover,
-  .nav li:focus, .nav li > a:focus,
+  .nav li:hover, .nav li:hover > a, .nav li > a:hover,
+  .nav li:focus, .nav li:focus > a, .nav li > a:focus,
+  .nav li.active, .nav li.active > a, .nav li.active > span,
   form button[type="submit"]:hover, input[type="button"]:hover, input[type="submit"]:hover,
   .pagination li > a:hover, .pagination li > span:hover,
   .pagination li > a:focus, .pagination li > span:focus,
@@ -618,6 +621,9 @@ div.pagination > ul {
 .pagination li.disabled > a:focus {
   cursor: not-allowed;
   color: #777 !important; 
+}
+header .page-header, div.header .page-header {
+  margin: 25px 0 15px;
 }
 
 @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {

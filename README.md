@@ -7,7 +7,6 @@ by [Andrey Novikov](https://github.com/AndNovAtor)
 
 This template use [Bootstrap 3](http://getbootstrap.com) and [JQuery](http://jquery.com).
 Css an js files are stored and used locally.
-его собственным путём
 ## Browser and device support
 Modern browser (including Edge) - _full_ support.
 IE support - versions >= 9.
